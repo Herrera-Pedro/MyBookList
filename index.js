@@ -1,9 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const app = express();
 
 // Middleware para parsear JSON
 app.use(express.json());
+
+// Servir arquivos estáticos da pasta public
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Conexão com o MongoDB
 mongoose.connect('mongodb://localhost:27017/mybooklist')
@@ -26,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 // Rota para listar todos os livros
-app.get('/livros', async (req, res) => {
+app.get('/api/livros', async (req, res) => {
     try {
         const livros = await Livro.find();
         res.json(livros);
@@ -36,7 +40,7 @@ app.get('/livros', async (req, res) => {
 });
 
 // Rota para adicionar um novo livro
-app.post('/livros', async (req, res) => {
+app.post('/api/livros', async (req, res) => {
     try {
         const novoLivro = new Livro(req.body);
         const livroSalvo = await novoLivro.save();

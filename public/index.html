@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de Livros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Minha Lista de Livros</h1>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Adicionar Novo Livro</h2>
+                <form id="bookForm">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="autor">Autor:</label>
+                        <input type="text" id="autor" name="autor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Ano:</label>
+                        <input type="number" id="ano" name="ano">
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Gênero:</label>
+                        <input type="text" id="genero" name="genero">
+                    </div>
+                    <button type="submit">Adicionar Livro</button>
+                </form>
+            </section>
+
+            <section class="books-section">
+                <h2>Meus Livros</h2>
+                <div id="booksList" class="books-grid">
+                    <!-- Os livros serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
